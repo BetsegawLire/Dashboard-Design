@@ -1,0 +1,21 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container">
+        <button class="logo" (click)="toggleCollapse()">
+            <img src="../../../assets/photo_2022-12-05_19-17-06.jpg" width="30" alt="">
+        </button>
+        <div class="logo-text" *ngIf="collapsed">EthioClicks</div>
+        <button class="btn-close" (click)="closeSidenav()" *ngIf="collapsed">
+            <!-- <i class="fal fa-times close-icon"></i> -->
+            <fa-icon class="close"  [icon]="close"></fa-icon>
+        </button>
+    </div>
+    <ul class="sidenav-nav">
+        <li class="sidenav-nav-item" *ngFor="let data of navData">
+            <a href="" class="sidenav-nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [routerLink]="[data.routeLink]">
+                <!-- <i class="sidenav-link-icon" [class]="data.icon"></i> -->
+                <fa-icon class="sidenav-link-icon" [icon]="data.icon"></fa-icon>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
